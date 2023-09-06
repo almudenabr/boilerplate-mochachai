@@ -26,10 +26,11 @@ suite('Functional Tests', function () {
       chai
         .request(server)
         .keepOpen()
-        .get('/hello?name=xy_z')
+        .get('/hello?name=almudena')
         .end(function (err, res) {
-          assert.fail(res.status, 200);
-          assert.fail(res.text, 'hello xy_z');
+          console.log(res.text, 'RES TEXT')
+          assert.equal(res.status, 200);
+          assert.equal(res.text, 'hello almudena');
           done();
         });
     });
